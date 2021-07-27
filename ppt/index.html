@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ppt test</title>
+        <script src="pptxgen.bundle.js"></script>
+    </head>
+    <body>
+        <script>
+            // 1. Create a new Presentation
+let pptx = new PptxGenJS();
+
+pptx.defineSlideMaster({
+    title: "MASTER_SLIDE",
+    background: { color: "FFFFFF" },
+    objects: [
+        { rect: { x: 0, y: "93%", w: "100%", h: 0.4, fill: { color: "ffffff" } } },
+        { text: { text: "\u00A9 2018 TelecomOne Teleservices India Pvt. Ltd.", options: { x: 0, y: "94%", w: "100%", h: 0.4, color: "000000", fontSize: 9, align: pptx.AlignH.center,} } },
+        { image: { x: "3%", y: "92%", w: "11%", h: 0.25, path: "nokia.png" } },
+        { image: { x: "87%", y: "87%", w: "7%", h: 0.6, path: "airtel.png" } },
+        { image: { x: "45%", y: "85%", w: "7%", h: 0.55, path: "logo.png" } },
+        { image: { x: "45.6%", y: "94%", w: "6.5%", h: 0.12, path: "netx.png" } },
+    ],
+    
+});
+
+
+pptx.defineSlideMaster({
+    title: "MASTER_SLIDE_fOOTER",
+    background: { color: "FFFFFF" },
+    objects: [
+        { rect: { x: 0, y: 0, w: "100%", h: "100%", fill: { color: "36aef1" } } },
+		{ rect: { x: 0, y: "40%", w: "100%", h: 1.7, fill: { color: "ffffff" } } },
+        { text: { text: "Thank You", options: { x: 0, y: "10%", w: "100%", h: 1, color: "ffffff", fontSize: 50, align: pptx.AlignH.center,} } },
+        { image: { x: "39%", y: "41%", w: "20%", h: 1.6, path: "logo.png" } },
+    ],
+    
+});
+
+// 2. Add a Slide
+let slide = pptx.addSlide();
+// let slide = pptx.addSlide("MASTER_NAME");
+// slide = pptx.addSlide("TITLE_SLIDE");
+// 3. Add one or more objects (Tables, Shapes, Images, Text and Media) to the Slide
+slide.background = { path: "bg1.jpg" }; // image: url
+slide.addText("COMPLAINT ANALYSIS REPORT", {
+    x: 0,
+    y: "20%",
+    w: "100%", 
+    h: 0.55,
+    fontSize: 20,
+    bold:true,
+    underline:true,
+    color: "363636",
+    align: pptx.AlignH.center,
+});
+
+
+//new slide 2
+// let slide1 = pptx.addSlide();
+// slide1.addText("Complaint Details", { x: 0.8, y: "10%", w: "100%", fontSize: 18, bold:true,color: "363636",align: pptx.AlignH.left});
+
+// slide1.addText("SR Number : ", { x: 0.5, y: "16%", w: "100%", bold:true, fontSize: 14, color: "464646",align: pptx.AlignH.left});
+// slide1.addText("1-20210216210328", { x: 1.55, y: "16%", w: "100%", fontSize: 14, color: "464646",align: pptx.AlignH.left});
+
+// slide1.addText("Customer Name : ", { x: 0.5, y: "20%", w: "100%", bold:true, fontSize: 14, color: "464646",align: pptx.AlignH.left});
+// slide1.addText("Good luck", { x: 1.95, y: "20%", w: "100%", fontSize: 14, color: "464646",align: pptx.AlignH.left});
+
+// slide1.addText("Address : ", { x: 0.5, y: "24%", w: "100%", bold:true, fontSize: 14, color: "464646",align: pptx.AlignH.left});
+// slide1.addText("a", { x: 1.28, y: "24%", w: "100%", fontSize: 14, color: "464646",align: pptx.AlignH.left});
+
+// slide1.addText("Complaint Type : ", { x: 0.5, y: "28%", w: "100%", bold:true, fontSize: 14, color: "464646",align: pptx.AlignH.left});
+// slide1.addText("a", { x: 1.89, y: "28%", w: "100%", fontSize: 14, color: "464646",align: pptx.AlignH.left});
+
+// slide1.addText("Created Date : ", { x: 0.5, y: "32%", w: "100%", bold:true, fontSize: 14, color: "464646",align: pptx.AlignH.left});
+// slide1.addText("2021-02-16 21:03:28", { x: 1.7, y: "32%", w: "100%", fontSize: 14, color: "464646",align: pptx.AlignH.left});
+
+// slide1.addText("First level Remark : ", { x: 0.5, y: "36%", w: "100%", bold:true, fontSize: 14, color: "464646",align: pptx.AlignH.left});
+// slide1.addText("undefined", { x: 2.1, y: "36%", w: "100%", fontSize: 14, color: "464646",align: pptx.AlignH.left});
+
+
+
+
+let slide0 = pptx.addSlide({ masterName: "MASTER_SLIDE" });
+let tabOpts0 = {
+		x: 0.3,
+		y: "10%",
+		w: "45%",
+		h: 1,
+		fontSize: 14,
+		// fontFace: "Courier",
+		align: "left",
+		valign: "middle",
+		fill: { color: "F9F9F9" },
+		border: { pt: "1", color: "c7c7c7" },
+	};
+	let arrTabRows0 = [
+		[
+			{ text: "Complaint Details", options: { colspan: 2, fill: { color: "1f2d82" }, color: "ffffff", bold:"true", align: "center", } },
+		],
+		["Case ID", "D2"],
+        ["Address", "901,tower9,prestige temple bells, rrnagar, bangaore"],
+        ["Complaint Type", "D2"],
+        ["Query Type", "D2"],
+        ["Zone", "D2"],
+        ["District ", "D2"],
+        ["Open Date ", "D2"],
+        ["Trouble shooter feedback ", "D2"],
+	];
+	slide0.addTable(arrTabRows0, tabOpts0);
+//2nd table
+    let tabOpts2nd = {
+		x: "51%",
+		y: "10%",
+		w: "45.5%",
+		h: 1,
+		fontSize: 14,
+		// fontFace: "Courier",
+		align: "left",
+		valign: "middle",
+		fill: { color: "F9F9F9" },
+		border: { pt: "1", color: "c7c7c7" },
+	};
+	let arrTabRows2nd = [
+		[
+			{ text: "Previous Complaint Details", options: { colspan: 2, fill: { color: "1f2d82" }, color: "ffffff", bold:"true", align: "center", } },
+		],
+		["Case ID", "D2"],
+        ["Address", "901,tower9,prestige temple bells, rrnagar, bangaore"],
+        ["Complaint Type", "D2"],
+        ["Query Type", "D2"],
+        ["Zone", "D2"],
+        ["District ", "D2"],
+        ["Open Date ", "D2"],
+        ["Trouble shooter feedback ", "D2"],
+	];
+	slide0.addTable(arrTabRows2nd, tabOpts2nd);
+
+
+
+
+
+
+
+	//new slide 3
+let slide3 = pptx.addSlide({ masterName: "MASTER_SLIDE" });
+// let shadowOpts = { type: "outer", color: "cd0011", };
+
+slide3.addText("2G RX-Levels", { x: 0, y: "3%", w: "100%",  h: 0.55, fontSize: 16, bold:true,color: "363636", align: pptx.AlignH.center,});
+
+slide3.addText("IDLE Mode", { x: 0, y: "8%", w: "50%", h: 0.55, fontSize: 14, color: "464646", align: pptx.AlignH.center,});
+
+slide3.addText("Dedicated Mode", { x: 5, y: "8%", w: "50%",  h: 0.55, fontSize: 14, color: "464646", align: pptx.AlignH.center,});
+
+let dataChartAreaLine3 = [
+    {
+        labels: ["18:16", "18:17", "18:19", "18:21", "18", "18:27", "18:28", "18:30", "18:32", "18:34", "18:36", "18:38"],
+        values: [-23, -26, -30, -29, -31, -29, -30, -29, -29, -31, -31, -30],
+    },
+];
+
+slide3.addChart(pptx.ChartType.line, dataChartAreaLine3, { x: 0.3, y: 0.8, w: "46%", h: 2 });
+
+let dataChartAreaLine31 = [
+    {
+        labels: [],
+        values: [],
+    },
+    {
+        labels: ["18:16", "18:17", "18:19", "18:21", "18", "18:27", "18:28", "18:30", "18:32", "18:34", "18:36", "18:38"],
+        values: [120, -25, -30, -29, -31, -29, -30, -29, -29, -31, -31, -30],
+    },
+    
+];
+
+slide3.addChart(pptx.ChartType.line, dataChartAreaLine31, { x: 5, y: 0.8, w: "48%", h: 2,});
+
+    let tabOpts3 = {
+		x: 0.3,
+		y: "50%",
+		w: "46%",
+		h: 0.3,
+		fontSize: 12,
+		align: "center",
+		valign: "middle",
+		fill: { color: "F9F9F9" },
+		border: { pt: "1", color: "c7c7c7" },
+	};
+	let arrTabRows3 = [
+		[
+			{ text: "Name", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "CI", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Samples", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Duration", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "High", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Low", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Avg", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Nei-List", options: { colspan: 1, fill: { color: "9999FF" } } },
+		],
+		["test", "15072", "5", "5", "8", "7", "10", "15072"],
+	];
+	slide3.addTable(arrTabRows3, tabOpts3);
+
+	let tabOpts31 = {
+		x: "51%",
+		y: "50%",
+		w: "46%",
+		h: 0.3,
+		fontSize: 12,
+		align: "center",
+		valign: "middle",
+		fill: { color: "F9F9F9" },
+		border: { pt: "1", color: "c7c7c7" },
+	};
+	let arrTabRows31 = [
+		[
+			{ text: "Name", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "CI", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Samples", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Duration", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "High", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Low", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Avg", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Nei-List", options: { colspan: 1, fill: { color: "9999FF" } } },
+		],
+		["test", "15072", "5", "5", "8", "7", "10", "15072"],
+	];
+	slide3.addTable(arrTabRows31, tabOpts31);
+
+
+
+
+
+
+
+
+
+
+		
+//new slide 4
+let slide4 = pptx.addSlide({ masterName: "MASTER_SLIDE" });
+// let shadowOpts = { type: "outer", color: "cd0011", };
+
+slide4.addText("3G RSCP", { x: 0, y: "3%", w: "100%",  h: 0.55, fontSize: 16, bold:true,color: "363636", align: pptx.AlignH.center,});
+
+slide4.addText("IDLE Mode", { x: 0, y: "8%", w: "50%", h: 0.55, fontSize: 14, color: "464646", align: pptx.AlignH.center,});
+
+slide4.addText("Dedicated Mode", { x: 5, y: "8%", w: "50%",  h: 0.55, fontSize: 14, color: "464646", align: pptx.AlignH.center,});
+
+let dataChartAreaLine4 = [
+    {
+        labels: ["18:16", "18:17", "18:19", "18:21", "18", "18:27", "18:28", "18:30", "18:32", "18:34", "18:36", "18:38"],
+        values: [-23, -26, -30, -29, -31, -29, -30, -29, -29, -31, -31, -30],
+    },
+];
+
+slide4.addChart(pptx.ChartType.line, dataChartAreaLine4, { x: 0.3, y: 0.8, w: "46%", h: 2 });
+
+let dataChartAreaLine41 = [
+    {
+        labels: [],
+        values: [],
+    },
+    {
+        labels: ["18:16", "18:17", "18:19", "18:21", "18", "18:27", "18:28", "18:30", "18:32", "18:34", "18:36", "18:38"],
+        values: [120, -25, -30, -29, -31, -29, -30, -29, -29, -31, -31, -30],
+    },
+    
+];
+
+slide4.addChart(pptx.ChartType.line, dataChartAreaLine41, { x: 5, y: 0.8, w: "48%", h: 2,});
+
+    let tabOpts4 = {
+		x: 0.3,
+		y: "50%",
+		w: "46%",
+		h: 0.3,
+		fontSize: 12,
+		align: "center",
+		valign: "middle",
+		fill: { color: "F9F9F9" },
+		border: { pt: "1", color: "c7c7c7" },
+	};
+	let arrTabRows4 = [
+		[
+			{ text: "Name", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "CI", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Samples", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Duration", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "High", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Low", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Avg", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Nei-List", options: { colspan: 1, fill: { color: "9999FF" } } },
+		],
+		["test", "15072", "5", "5", "8", "7", "10", "15072"],
+	];
+	slide4.addTable(arrTabRows4, tabOpts4);
+
+	let tabOpts41 = {
+		x: "51%",
+		y: "50%",
+		w: "46%",
+		h: 0.3,
+		fontSize: 12,
+		align: "center",
+		valign: "middle",
+		fill: { color: "F9F9F9" },
+		border: { pt: "1", color: "c7c7c7" },
+	};
+	let arrTabRows41 = [
+		[
+			{ text: "Name", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "CI", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Samples", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Duration", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "High", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Low", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Avg", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Nei-List", options: { colspan: 1, fill: { color: "9999FF" } } },
+		],
+		["test", "15072", "5", "5", "8", "7", "10", "15072"],
+	];
+	slide4.addTable(arrTabRows41, tabOpts41);
+
+
+
+
+
+
+
+
+
+
+
+
+	
+//new slide 5
+// let slide5 = pptx.addSlide({ masterName: "MASTER_SLIDE" });
+// // let shadowOpts = { type: "outer", color: "cd0011", };
+
+// slide5.addText("3G ECP", { x: 0, y: "3%", w: "100%",  h: 0.55, fontSize: 16, bold:true,color: "363636", align: pptx.AlignH.center,});
+
+// slide5.addText("IDLE Mode", { x: 0, y: "8%", w: "50%", h: 0.55, fontSize: 14, color: "464646", align: pptx.AlignH.center,});
+
+// slide5.addText("Dedicated Mode", { x: 5, y: "8%", w: "50%",  h: 0.55, fontSize: 14, color: "464646", align: pptx.AlignH.center,});
+
+// let dataChartAreaLine5 = [
+//     {
+//         labels: ["18:16", "18:17", "18:19", "18:21", "18", "18:27", "18:28", "18:30", "18:32", "18:34", "18:36", "18:38"],
+//         values: [-23, -26, -30, -29, -31, -29, -30, -29, -29, -31, -31, -30],
+//     },
+// ];
+
+// slide5.addChart(pptx.ChartType.line, dataChartAreaLine5, { x: 0.3, y: 0.8, w: "46%", h: 2 });
+
+// let dataChartAreaLine51 = [
+//     {
+//         labels: [],
+//         values: [],
+//     },
+//     {
+//         labels: ["18:16", "18:17", "18:19", "18:21", "18", "18:27", "18:28", "18:30", "18:32", "18:34", "18:36", "18:38"],
+//         values: [120, -25, -30, -29, -31, -29, -30, -29, -29, -31, -31, -30],
+//     },
+    
+// ];
+
+// slide5.addChart(pptx.ChartType.line, dataChartAreaLine51, { x: 5, y: 0.8, w: "48%", h: 2,});
+
+//     let tabOpts5 = {
+// 		x: 0.3,
+// 		y: "50%",
+// 		w: "46%",
+// 		h: 0.3,
+// 		fontSize: 12,
+// 		align: "center",
+// 		valign: "middle",
+// 		fill: { color: "F9F9F9" },
+// 		border: { pt: "1", color: "c7c7c7" },
+// 	};
+// 	let arrTabRows5 = [
+// 		[
+// 			{ text: "Name", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			{ text: "CI", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			{ text: "Samples", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			{ text: "Duration", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			// { text: "Level High", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			// { text: "Level Low", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			// { text: "Level Avg", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			{ text: "Nei-List", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 		],
+// 		["test", "15072", "5", "5", "8", "7", "10", "15072"],
+// 	];
+// 	slide5.addTable(arrTabRows5, tabOpts5);
+
+// 	let tabOpts51 = {
+// 		x: "51%",
+// 		y: "50%",
+// 		w: "46%",
+// 		h: 0.3,
+// 		fontSize: 12,
+// 		align: "center",
+// 		valign: "middle",
+// 		fill: { color: "F9F9F9" },
+// 		border: { pt: "1", color: "c7c7c7" },
+// 	};
+// 	let arrTabRows51 = [
+// 		[
+// 			{ text: "Name", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			{ text: "CI", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			{ text: "Samples", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			{ text: "Duration", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			// { text: "Level High", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			// { text: "Level Low", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			// { text: "Level Avg", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 			{ text: "Nei-List", options: { colspan: 1, fill: { color: "9999FF" } } },
+// 		],
+// 		["test", "15072", "5", "5", "8", "7", "10", "15072"],
+// 	];
+// 	slide5.addTable(arrTabRows51, tabOpts51);
+
+
+
+
+
+
+
+
+
+
+
+//new slide 6
+let slide6 = pptx.addSlide({ masterName: "MASTER_SLIDE" });
+// let shadowOpts = { type: "outer", color: "cd0011", };
+
+slide6.addText("4G RSRP", { x: 0, y: "3%", w: "100%",  h: 0.55, fontSize: 16, bold:true,color: "363636", align: pptx.AlignH.center,});
+
+slide6.addText("IDLE Mode", { x: 0, y: "8%", w: "50%", h: 0.55, fontSize: 14, color: "464646", align: pptx.AlignH.center,});
+
+slide6.addText("Dedicated Mode", { x: 5, y: "8%", w: "50%",  h: 0.55, fontSize: 14, color: "464646", align: pptx.AlignH.center,});
+
+let dataChartAreaLine7 = [
+    {
+        labels: ["18:16", "18:17", "18:19", "18:21", "18", "18:27", "18:28", "18:30", "18:32", "18:34", "18:36", "18:38"],
+        values: [-23, -26, -30, -29, -31, -29, -30, -29, -29, -31, -31, -30],
+    },
+];
+
+slide6.addChart(pptx.ChartType.line, dataChartAreaLine7, { x: 0.3, y: 0.8, w: "46%", h: 2 });
+
+let dataChartAreaLine8 = [
+    {
+        labels: [],
+        values: [],
+    },
+    {
+        labels: ["18:16", "18:17", "18:19", "18:21", "18", "18:27", "18:28", "18:30", "18:32", "18:34", "18:36", "18:38"],
+        values: [120, -25, -30, -29, -31, -29, -30, -29, -29, -31, -31, -30],
+    },
+    
+];
+
+slide6.addChart(pptx.ChartType.line, dataChartAreaLine8, { x: 5, y: 0.8, w: "48%", h: 2,});
+
+    let tabOpts7 = {
+		x: 0.3,
+		y: "50%",
+		w: "46%",
+		h: 0.3,
+		fontSize: 12,
+		align: "center",
+		valign: "middle",
+		fill: { color: "F9F9F9" },
+		border: { pt: "1", color: "c7c7c7" },
+	};
+	let arrTabRows7 = [
+		[
+			{ text: "Name", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "CI", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Samples", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Duration", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "High", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Low", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Avg", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Nei-List", options: { colspan: 1, fill: { color: "9999FF" } } },
+		],
+		["test", "15072", "5", "5", "8", "7", "10", "15072"],
+	];
+	slide6.addTable(arrTabRows7, tabOpts7);
+
+	let tabOpts8 = {
+		x: "51%",
+		y: "50%",
+		w: "46%",
+		h: 0.3,
+		fontSize: 12,
+		align: "center",
+		valign: "middle",
+		fill: { color: "F9F9F9" },
+		border: { pt: "1", color: "c7c7c7" },
+	};
+	let arrTabRows8 = [
+		[
+			{ text: "Name", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "CI", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Samples", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Duration", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "High", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Low", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Avg", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Nei-List", options: { colspan: 1, fill: { color: "9999FF" } } },
+		],
+		["test", "15072", "5", "5", "8", "7", "10", "15072"],
+	];
+	slide6.addTable(arrTabRows8, tabOpts8);
+
+    
+
+
+
+
+
+
+
+	//new slide 7
+let slide7 = pptx.addSlide({ masterName: "MASTER_SLIDE" });
+// let shadowOpts = { type: "outer", color: "cd0011", };
+
+slide7.addText("4G RSRQ", { x: 0, y: "3%", w: "100%",  h: 0.55, fontSize: 16, bold:true,color: "363636", align: pptx.AlignH.center,});
+
+slide7.addText("IDLE Mode", { x: 0, y: "8%", w: "50%", h: 0.55, fontSize: 14, color: "464646", align: pptx.AlignH.center,});
+
+slide7.addText("Dedicated Mode", { x: 5, y: "8%", w: "50%",  h: 0.55, fontSize: 14, color: "464646", align: pptx.AlignH.center,});
+
+let dataChartAreaLine9 = [
+    {
+        labels: ["18:16", "18:17", "18:19", "18:21", "18", "18:27", "18:28", "18:30", "18:32", "18:34", "18:36", "18:38"],
+        values: [-23, -26, -30, -29, -31, -29, -30, -29, -29, -31, -31, -30],
+    },
+];
+
+slide7.addChart(pptx.ChartType.line, dataChartAreaLine9, { x: 0.3, y: 0.8, w: "46%", h: 2 });
+
+let dataChartAreaLine10 = [
+    {
+        labels: [],
+        values: [],
+    },
+    {
+        labels: ["18:16", "18:17", "18:19", "18:21", "18", "18:27", "18:28", "18:30", "18:32", "18:34", "18:36", "18:38"],
+        values: [120, -25, -30, -29, -31, -29, -30, -29, -29, -31, -31, -30],
+    },
+    
+];
+
+slide7.addChart(pptx.ChartType.line, dataChartAreaLine10, { x: 5, y: 0.8, w: "48%", h: 2,});
+
+    let tabOpts9 = {
+		x: 0.3,
+		y: "50%",
+		w: "46%",
+		h: 0.3,
+		fontSize: 12,
+		align: "center",
+		valign: "middle",
+		fill: { color: "F9F9F9" },
+		border: { pt: "1", color: "c7c7c7" },
+	};
+	let arrTabRows9 = [
+		[
+			{ text: "Name", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "CI", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Samples", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Duration", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "High", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Low", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Avg", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Nei-List", options: { colspan: 1, fill: { color: "9999FF" } } },
+		],
+		["test", "15072", "5", "5", "8", "7", "10", "15072"],
+	];
+	slide7.addTable(arrTabRows9, tabOpts9);
+
+	let tabOpts10 = {
+		x: "51%",
+		y: "50%",
+		w: "46%",
+		h: 0.3,
+		fontSize: 12,
+		align: "center",
+		valign: "middle",
+		fill: { color: "F9F9F9" },
+		border: { pt: "1", color: "c7c7c7" },
+	};
+	let arrTabRows10 = [
+		[
+			{ text: "Name", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "CI", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Samples", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Duration", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "High", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Low", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Avg", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Nei-List", options: { colspan: 1, fill: { color: "9999FF" } } },
+		],
+		["test", "15072", "5", "5", "8", "7", "10", "15072"],
+	];
+	slide7.addTable(arrTabRows10, tabOpts10);
+
+
+
+
+
+
+
+
+
+//new slide 8
+let slide8 = pptx.addSlide({ masterName: "MASTER_SLIDE" });
+// let shadowOpts = { type: "outer", color: "cd0011", };
+
+slide8.addText("4G SINR", { x: 0, y: "3%", w: "100%",  h: 0.55, fontSize: 16, bold:true,color: "363636", align: pptx.AlignH.center,});
+
+slide8.addText("IDLE Mode", { x: 0, y: "8%", w: "50%", h: 0.55, fontSize: 14, color: "464646", align: pptx.AlignH.center,});
+
+slide8.addText("Dedicated Mode", { x: 5, y: "8%", w: "50%",  h: 0.55, fontSize: 14, color: "464646", align: pptx.AlignH.center,});
+
+let dataChartAreaLine11 = [
+    {
+        labels: ["18:16", "18:17", "18:19", "18:21", "18", "18:27", "18:28", "18:30", "18:32", "18:34", "18:36", "18:38"],
+        values: [-23, -26, -30, -29, -31, -29, -30, -29, -29, -31, -31, -30],
+    },
+];
+
+slide8.addChart(pptx.ChartType.line, dataChartAreaLine11, { x: 0.3, y: 0.8, w: "46%", h: 2 });
+
+let dataChartAreaLine12 = [
+    {
+        labels: [],
+        values: [],
+    },
+    {
+        labels: ["18:16", "18:17", "18:19", "18:21", "18", "18:27", "18:28", "18:30", "18:32", "18:34", "18:36", "18:38"],
+        values: [120, -25, -30, -29, -31, -29, -30, -29, -29, -31, -31, -30],
+    },
+    
+];
+
+slide8.addChart(pptx.ChartType.line, dataChartAreaLine12, { x: 5, y: 0.8, w: "48%", h: 2,});
+
+    let tabOpts11 = {
+		x: 0.3,
+		y: "50%",
+		w: "46%",
+		h: 0.3,
+		fontSize: 12,
+		align: "center",
+		valign: "middle",
+		fill: { color: "F9F9F9" },
+		border: { pt: "1", color: "c7c7c7" },
+	};
+	let arrTabRows11 = [
+		[
+			{ text: "Name", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "CI", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Samples", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Duration", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "High", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Low", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Avg", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Nei-List", options: { colspan: 1, fill: { color: "9999FF" } } },
+		],
+		["test", "15072", "5", "5", "8", "7", "10", "15072"],
+	];
+	slide8.addTable(arrTabRows11, tabOpts11);
+
+	let tabOpts12 = {
+		x: "51%",
+		y: "50%",
+		w: "46%",
+		h: 0.3,
+		fontSize: 12,
+		align: "center",
+		valign: "middle",
+		fill: { color: "F9F9F9" },
+		border: { pt: "1", color: "c7c7c7" },
+	};
+	let arrTabRows12 = [
+		[
+			{ text: "Name", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "CI", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Samples", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Duration", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "High", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Low", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Avg", options: { colspan: 1, fill: { color: "9999FF" } } },
+			{ text: "Nei-List", options: { colspan: 1, fill: { color: "9999FF" } } },
+		],
+		["test", "15072", "5", "5", "8", "7", "10", "15072"],
+	];
+	slide8.addTable(arrTabRows12, tabOpts12);
+
+
+
+
+
+
+	//new slide 9
+let slide9 = pptx.addSlide({ masterName: "MASTER_SLIDE" });
+slide9.addText("Observation & Optimization Plan", { x: 0, y: "3%", w: "100%",  h: 0.55, fontSize: 16, bold:true,color: "363636", align: pptx.AlignH.center,});
+
+slide9.addText("TSG Observation : ", { x: 1, y: "20%", w: "96%", fontSize: 14, color: "464646", align: pptx.AlignH.left,});
+
+slide9.addText("RF Remarks : ", { x: 1, y: "50%", w: "96%", fontSize: 14, color: "464646", align: pptx.AlignH.left,});
+
+
+
+//new slide 10
+let slide10 = pptx.addSlide({ masterName: "MASTER_SLIDE_fOOTER" });
+
+
+
+
+// slide.slideNumber = { x: 0.2, y: "90%" };
+// slide.addBackgroundProps({ path: "bg1.jpg", x: 2, y: 2, width:80 }); fill: { color: "102180" },
+
+// 4. Save the Presentation
+pptx.writeFile({ fileName: "Sample Presentation.pptx" });
+        </script>
+    </body>
+</html>
