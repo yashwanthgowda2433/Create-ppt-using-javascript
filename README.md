@@ -1,4 +1,4 @@
-# Create-ppt-using-javascript using PPTXGEN API
+# Create-ppt-using-javascript & using PPTXGEN API
 
 # include inside header tag
 <script src="pptxgen.bundle.js"></script>
